@@ -16,7 +16,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-neutral lg:px-16 lg:py-5">
+    <div className="navbar bg-purple-800 shadow-xl lg:px-16 lg:py-5">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,6 +42,15 @@ const Navbar = () => {
             </NavLink></li>
 
             <li><NavLink
+              to="/products"
+              className={({ isActive, isPending }) =>
+                isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
+              }
+            >
+              Products
+            </NavLink></li>
+
+            <li><NavLink
               to="/addCard"
               className={({ isActive, isPending }) =>
                 isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
@@ -49,6 +58,17 @@ const Navbar = () => {
             >
               Add Card
             </NavLink></li>
+
+            <li><NavLink
+              to="/myCard"
+              className={({ isActive, isPending }) =>
+                isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
+              }
+            >
+              My Card
+            </NavLink></li>
+
+
 
             <li><NavLink
               to="/logIn"
@@ -67,18 +87,12 @@ const Navbar = () => {
             >
               Registration
             </NavLink></li>
-            <li><NavLink
-              to="/myCard"
-              className={({ isActive, isPending }) =>
-                isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
-              }
-            >
-              My Card
-            </NavLink></li>
+            
 
           </ul>
         </div>
-        <h2 className="text-3xl text-white font-bold">Social Events Master</h2>
+        {/* <h2 className="text-3xl text-white font-bold">Social Events Master</h2> */}
+        <img className="h-[70px]" src="https://i.ibb.co/LQs8Nqw/image.png" alt="" />
 
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -103,12 +117,30 @@ const Navbar = () => {
           </NavLink></li>
 
           <li><NavLink
+            to="/products"
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
+            }
+          >
+            Products
+          </NavLink></li>
+
+          <li><NavLink
             to="/addCard"
             className={({ isActive, isPending }) =>
               isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
             }
           >
             Add Card
+          </NavLink></li>
+
+          <li><NavLink
+            to="/myCard"
+            className={({ isActive, isPending }) =>
+              isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
+            }
+          >
+            My Card
           </NavLink></li>
 
 
@@ -130,14 +162,7 @@ const Navbar = () => {
           >
             Registration
           </NavLink></li>
-          <li><NavLink
-            to="/myCard"
-            className={({ isActive, isPending }) =>
-              isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
-            }
-          >
-            My Card
-          </NavLink></li>
+          
         </ul>
       </div>
       <div className="navbar-end">

@@ -35,6 +35,9 @@ const AddCard = () => {
     .then((res)=>res.json())
     .then((data)=>{
       console.log(data);
+      if (data.acknowledged) {
+        swal("Okay, Done!", "Product added successfully!", "success");
+      }
     });
 
   }
