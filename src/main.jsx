@@ -16,6 +16,8 @@ import AboutUs from './Components/AboutUs.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import Products from './Components/Products.jsx';
 import Product from './Components/Product.jsx';
+import Details from './Components/Details.jsx';
+import Updated from './Components/Updated.jsx';
 
 
 const router = createBrowserRouter([
@@ -55,9 +57,22 @@ const router = createBrowserRouter([
         loader: () => fetch(`http://localhost:5000/products`)
       },
       {
-        path: "/brands/:_id",
+        path: "/brands/:brand",
         element: <Product></Product>,
         loader: () => fetch(`http://localhost:5000/products`)
+      },
+      {
+        path: "/products/:_id",
+        element: <Details></Details>,
+        loader: () => fetch(`http://localhost:5000/products`)
+      },
+      {
+        path: "/products/:_id",
+        element: <Updated></Updated>,
+        loader: ({params}) => {
+          console.log(params);
+          return fetch(`http://localhost:5000/products/${params._id}`)
+        }
       }
     ]
   },

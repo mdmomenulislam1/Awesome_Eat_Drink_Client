@@ -4,8 +4,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
   const brands = useLoaderData();
-  const { _id, brand, brand_img } = brands || {};
-  console.log(brands);
+  // const { _id, brand, brand_img } = brands || {};
+  // console.log(brands);
   return (
     <div className="mx-5">
       <Banner></Banner>
@@ -16,8 +16,8 @@ const Home = () => {
 
         {
           brands?.map((brandItem) => (
-            <Link to={`/brands/${_id}`}>
-              <div key={brandItem._id} brandItem={brandItem} className="flex shadow-2xl rounded-xl bg-white h-[400px] items-center">
+            <Link to={`/brands/${brandItem.brand}`}>
+              <div key={brandItem.brand} brandItem={brandItem} className="flex shadow-2xl rounded-xl bg-white h-[300px] items-center">
                 
                 <img src={brandItem.brand_img} alt=""  className="h-full w-[400px] rounded-lg shadow-lg "/>
                 <h1 className="text-4xl font-bold text-purple-800 mx-auto">{brandItem.brand}</h1>
@@ -28,6 +28,8 @@ const Home = () => {
         }
 
       </div>
+
+      
     </div>
   );
 };
