@@ -51,18 +51,18 @@ const router = createBrowserRouter([
         path: "/aboutUs",
         element: <AboutUs></AboutUs>
       },
-      {
-        path:"/products",
-        element: <Products></Products>,
-        loader: () => fetch(`http://localhost:5000/products`)
-      },
+      // {
+      //   path:"/products",
+      //   element: <Products></Products>,
+      //   loader: () => fetch(`http://localhost:5000/products`)
+      // },
       {
         path: "/brands/:brand",
         element: <Product></Product>,
         loader: () => fetch(`http://localhost:5000/products`)
       },
       {
-        path: "/products/:_id",
+        path: "/prod/:_id",
         element: <Details></Details>,
         loader: () => fetch(`http://localhost:5000/products`)
       },

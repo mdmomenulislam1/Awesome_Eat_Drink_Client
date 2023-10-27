@@ -116,14 +116,14 @@ const Navbar = () => {
             About Us
           </NavLink></li>
 
-          <li><NavLink
+          {/* <li><NavLink
             to="/products"
             className={({ isActive, isPending }) =>
               isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"
             }
           >
             Products
-          </NavLink></li>
+          </NavLink></li> */}
 
           <li><NavLink
             to="/addCard"

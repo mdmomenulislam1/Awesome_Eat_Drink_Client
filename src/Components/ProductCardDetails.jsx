@@ -1,34 +1,65 @@
 import React from 'react';
 
-const ProductCardDetails = ({food}) => {
-  const {_id, productName, productImage, brandName, brandImage, productType, productPrice, productShortDescription, productFullDescription, productRating } = food || {};
-  
-  const handleAddToCart = () =>{
+const ProductCardDetails = ({ food }) => {
+  const { _id, productName, productImage, brandName, brandImage, productType, productPrice, productShortDescription, productFullDescription, productRating } = food || {};
+
+  const handleAddToCart = () => {
     const addCartItemArr = [];
-    const addedItem = JSON.parse(localStorage.getItem('Added')); 
+    const addItem = JSON.parse(localStorage.getItem('Add'));
     addCartItemArr.push(food);
-    localStorage.setItem('Added', JSON.stringify(addCartItemArr));
+    localStorage.setItem('Add', JSON.stringify(addCartItemArr));
+
+
+    // if (!addItem) {
+    //   addCartItemArr.push(food)
+    //   localStorage.setItem('Served', JSON.stringify(addServedItemArr))
+    //   swal("Good job!", "Products added successfully!", "success");
+    // }
+
+    // else {
+    //   const isExists = ServedItem.find(service => service.id == id)
+
+    //   if (!isExists) {
+    //     addServedItemArr.push(...ServedItem, service)
+    //     localStorage.setItem('Served', JSON.stringify(addServedItemArr))
+    //     swal("Good job!", "Products added successfully!", "success");
+
+    //   }
+    //   else{
+
+    //     swal("Error!", "No duplicate!", "error");
+    //   }
+    // }
+
+    // addServedItemArr.push(...ServedItem, service)
+    // localStorage.setItem('Served', JSON.stringify(addServedItemArr))
+    // swal("Good job!", "Products added successfully!", "success");
     swal("Good job!", "Products added successfully!", "success");
   }
-  
+
   return (
     <div>
-      <h2 className="text-2xl">Product Card Details</h2>
-
       <div>
-        <h2 className="text-2xl">Details Page</h2>
+        <h2 className="text-3xl text-center font-bold mt-10">Product Details </h2>
         <div className="max-w-[1300px] mx-auto px-10 lg:px-0 my-10">
-          <div>
-            <div className="card w-full glass relative">
-              <img src={productImage} className="w-full h-[500px] rounded-lg" alt="car!" />
+          <div className="glass rounded-lg p-5">
+            <div className="card w-full relative flex flex-row justify-around items-center ">
+              <div>
+                <img src={productImage} className="rounded-lg" alt="car!" />
+              </div>
+
+              <div>
+                <h2 className="text-4xl font-bold mb-4">Product Name: {productName}</h2>
+                <h2 className="text-4xl font-bold mb-4">Brand Name{brandName}</h2>
+                <p className="text-3xl font-bold my-3">Product Price: ${productPrice}</p>
+                <p className="text-3xl font-bold my-3">Product Rating: {productRating} out of 5</p>
+              </div>
             </div>
             <div className="py-10">
-              <h2 className="text-4xl font-bold mb-4">{productName}</h2>
-              <h2 className="text-4xl font-bold mb-4">{brandName}</h2>
-              <p className="text-justify font-normal">{productFullDescription}</p>
-              <p className="text-3xl font-bold my-3">Price: ${productPrice}</p>
-            </div>
+              <h2 className="text-4xl font-bold mb-4">Product Description</h2>
+              <p className="text-justify font-semibold">{productFullDescription} {productShortDescription}</p>
 
+            </div>
             <button onClick={handleAddToCart} className="p-5 bg-black text-white w-full font-bold rounded-full">Add to Cart</button>
           </div>
         </div>

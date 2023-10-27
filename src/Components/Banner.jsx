@@ -2,26 +2,16 @@ import React from 'react';
 
 const Banner = () => {
   return (
-    <div>
-      <div className="carousel w-full h-[600px]">
-        <div id="item1" className="carousel-item w-full">
-          <img src="https://i.ibb.co/NYtB5df/9a405521d5d945f35127079812ada518.jpg" className="w-full " />
+    <div className="hero h-[500px]" style={{ backgroundImage: 'url(https://i.ibb.co/NYtB5df/9a405521d5d945f35127079812ada518.jpg)' }}>
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="text-center text-neutral-content">
+        <div className="">
+          <h1 className="mb-5 text-5xl font-bold">Awesome Food Corner</h1>
+          <p className="mb-5">Awesome Food Corner: Culinary Artistry, Unforgettable Moments</p>
+          <p>
+            At Awesome Food Corner, we blend culinary artistry with a welcoming atmosphere. Our diverse menu features global flavors, while signature dishes like Himalayan Lamb Chops and Chocolate Molten Lava Cake are a must-try. Our expert mixologists craft the perfect beverages, and our attentive staff ensure a top-notch dining experience. Whether it's a romantic dinner, a gathering with friends, or a special event, we're the ideal choice. Located in the heart of the city, we're ready to create unforgettable moments with every visit.</p>
+
         </div>
-        <div id="item2" className="carousel-item w-full">
-          <img src="https://i.ibb.co/fHMNNR3/services-header-image.jpg" className="w-full " />
-        </div>
-        <div id="item3" className="carousel-item w-full">
-          <img src="https://i.ibb.co/JyB2LB8/soft-drink-banner-ads-ice-cubes-citrus-elements-d-illustration-141918175.webp" className="w-full " />
-        </div>
-        <div id="item4" className="carousel-item w-full">
-          <img src="https://i.ibb.co/4KgZhpt/R.jpg" className="w-full " />
-        </div>
-      </div>
-      <div className="flex justify-center w-full py-2 gap-2">
-        <a href="#item1" className="btn btn-sm">1</a>
-        <a href="#item2" className="btn btn-sm">2</a>
-        <a href="#item3" className="btn btn-sm">3</a>
-        <a href="#item4" className="btn btn-sm">4</a>
       </div>
     </div>
   );

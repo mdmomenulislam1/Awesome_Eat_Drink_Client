@@ -26,7 +26,8 @@ const Details = () => {
     
     useEffect(() => {
         const findFood = foods?.find((food) => food._id == _id);
-        console.log(food._id);
+        // const findFood = foods?.find((food) => food._id == _id);
+        console.log(findFood);
         setFood(findFood)
         // setService(findService);
 

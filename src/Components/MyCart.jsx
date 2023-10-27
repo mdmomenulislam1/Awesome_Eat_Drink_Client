@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CartCard from './CartCard';
 
 const MyCart = () => {
 
@@ -10,21 +11,22 @@ const MyCart = () => {
 
 
 
-  useEffect(()=>{
-    const orderedItem = JSON.parse(localStorage.getItem('Added'))
+  useEffect(() => {
+    const orderedItem = JSON.parse(localStorage.getItem('Add'))
 
     if (orderedItem) {
+      console.log(orderedItem);
       setOrder(orderedItem);
 
-      const total = orderedItem.reduce((previousValue, currentPrice) => previousValue + currentPrice.productPrice, 0);
+      const total = orderedItem.reduce((previousValue, currentPrice) => previousValue + parseFloat(currentPrice?.productPrice), 0);
       setTotalPrice(total);
     }
-    else{
+    else {
       setNoFound("No Ordered Item ")
     }
   }, []);
 
-  const handleRemove = () =>{
+  const handleRemove = () => {
     localStorage.clear();
     setOrder([]);
     setNoFound("No Ordered")
@@ -33,23 +35,16 @@ const MyCart = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold">MyCart Page</h2>
-      <div>
+            <div>
         <div>
-
-
           <div className="overflow-x-auto px-5 w-full text-2xl font-bold py-5">
-
-
-
-
             {
-              isShow ? order?.map((service) => (
-                <DashboardCard key={service.id} service={service}></DashboardCard>
+              isShow ? order?.map((serviceItem) => (
+                <CartCard key={serviceItem._id} serviceItem={serviceItem}></CartCard>
               ))
 
-                : order.slice(0, 10).map((service) => (
-                  <DashboardCard key={service.id} service={service}></DashboardCard>
+                : order.slice(0, 10).map((serviceItem) => (
+                  <CartCard key={serviceItem._id} serviceItem={serviceItem}></CartCard>
                 ))
             }
           </div>
