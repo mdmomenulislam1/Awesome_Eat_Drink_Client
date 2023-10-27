@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import ProductCard from './ProductCard';
 
 const Product = () => {
   const [product, setProduct] = useState([])
@@ -38,30 +39,30 @@ const Product = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {
-          product?.map((food) => (
-            <div key={food._id} className="flex justify-center items-center shadow-xl my-5 gap-4 bg-yellow-800 rounded-lg p-5">
-              <div>
-                <img src={food.productImage} alt="" className="h-full rounded-lg" />
-              </div>
-              <div className="p-5">
-                <p className="text-3xl font-bold mb-2">{food.productName}</p>
-                <p className="text-2xl font-bold mb-2">{food.brandName}</p>
-                <p className="text-2xl font-bold mb-2">{food.productType}</p>
-                <p className="text-3xl font-bold mb-2">$ {food.productPrice}</p>
-                <p className="text-3xl font-bold mb-2">Rating {food.productRating}</p>
-                <div className="flex gap-3">
-                  <Link to={`/products/${food._id}`}>
-                    <button className="btn text-3xl font-bold">Details</button>
-                  </Link>
-                  <Link to={`/products/${food._id}`}>
-                    <button className="btn text-3xl font-bold">Update</button>
-                  </Link>
+          product?.map((food) => <ProductCard key={food._id} food = {food}></ProductCard>
+            // <div key={food._id} className="flex justify-center items-center shadow-xl my-5 gap-4 bg-yellow-800 rounded-lg p-5">
+            //   <div>
+            //     <img src={food.productImage} alt="" className="h-full rounded-lg" />
+            //   </div>
+            //   <div className="p-5">
+            //     <p className="text-3xl font-bold mb-2">{food.productName}</p>
+            //     <p className="text-2xl font-bold mb-2">{food.brandName}</p>
+            //     <p className="text-2xl font-bold mb-2">{food.productType}</p>
+            //     <p className="text-3xl font-bold mb-2">$ {food.productPrice}</p>
+            //     <p className="text-3xl font-bold mb-2">Rating {food.productRating}</p>
+            //     <div className="flex gap-3">
+            //       <Link to={`/products/${food._id}`}>
+            //         <button className="btn text-3xl font-bold">Details</button>
+            //       </Link>
+            //       <Link to={`/products/${food._id}`}>
+            //         <button className="btn text-3xl font-bold">Update</button>
+            //       </Link>
 
-                </div>
-              </div>
+            //     </div>
+            //   </div>
 
-            </div>
-          ))
+            // </div>
+          )
         }
       </div>
     </div>

@@ -3,7 +3,7 @@ import { BsEye, BsEyeSlash, BsFacebook, BsGithub, BsGoogle } from "react-icons/b
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthProvider, { AuthContext } from "../Firebase/AuthProvider";
 import { Result } from "postcss";
-import { GoogleAuthProvider, getAuth, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import swal from "sweetalert";
 
@@ -18,13 +18,14 @@ const LogIn = () => {
         signInWithPopup(auth, provider)
             .then(()=>{
                 swal("Welcome!", "Log In successfully!", "success");
+                navigate(location?.state ? location.state : '/');
             })
             .catch(()=>{
                 swal("Sorry!", "Try again!", "error");
             })
     }
 
-    // const { signIn, user } = useContext(AuthContext);
+    const { signIn, user } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     console.log('location i n the login page', location)
@@ -36,13 +37,11 @@ const LogIn = () => {
         const password = form.password.value;
         setShowPassword(password);
         console.log(email, password);
-        signIn(email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 console.log(result.user);
                 swal("Welcome!", "Log In successfully!", "success");
-                // navigate after login
                 navigate(location?.state ? location.state : '/');
-
             })
             .catch(error => {
                 console.log(error);
@@ -75,15 +74,15 @@ const LogIn = () => {
 
     return (
         <div className="p-14 mx-auto shadow-2xl">
-            
+            {user ?
                 <div className="py-10 text-center font-bold">
                     <p className="my-3">Welcome to our World</p>
-                    {/* <p className="my-3">Name: {user?.displayName}</p>
+                    <p className="my-3">Name: {user?.displayName}</p>
                     <img src="https://i.ibb.co/FzKkyS3/1e769b3a675977651b76790a90591eb1.jpg" alt="" className="rounded-full mx-auto my-3" />
                     <img src={user?.photoURL} alt="" className="rounded-full mx-auto my-3" />
-                    <p className="my-3">Email: {user?.email}</p> */}
+                    <p className="my-3">Email: {user?.email}</p>
 
-                </div> 
+                </div> :
                 <>
                     <div className="">
                         <form onSubmit={handleLogin} className="w-full">
@@ -114,13 +113,14 @@ const LogIn = () => {
                                 </span>
                                 <label className="label">
                                     <a onClick={handleResetPassword} href="#" className="label-text-alt text-black link link-hover font-semibold">Forgot password?</a>
+                                    {/* <a onClick={handleResetPassword} href="#" className="label-text-alt text-black link link-hover font-semibold">Forgot password?</a> */}
                                 </label>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="bg-red-700 font-bold text-center text-black p-3 rounded-lg">Login</button>
                             </div>
                         </form>
-                        <p className="font-semibold"> Are you New? Please <Link to="/registration" className=""> <span>  Registration</span></Link></p>
+                        <p className="font-semibold"> Are you New? Please <Link to="/register" className=""> <span>  Register</span></Link></p>
                     </div>
                     <h3 className="text-center text-3xl font-bold"> Or </h3>
                     <div className="flex justify-center items-center py-3">
@@ -132,7 +132,7 @@ const LogIn = () => {
 
                     </div>
                 </>
-            
+            }
         </div>
     );
 };
