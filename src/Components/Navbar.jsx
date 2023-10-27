@@ -2,13 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import { BsPersonAdd } from "react-icons/bs";
 import { useContext } from "react";
 import { AuthContext } from "../Firebase/AuthProvider";
-import Button from "./ThemeButton";
-import { lightTheme } from "./Theme";
-
-
 
 const Navbar = () => {
-  // const { logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleSignOut = () => {
     logOut()
@@ -16,6 +12,9 @@ const Navbar = () => {
       .catch()
   }
 
+  const links = <>
+    <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold"}>Home </NavLink></li>
+  </>
 
   return (
     <div className="navbar bg-purple-800 shadow-xl lg:px-16 lg:py-5">
@@ -25,14 +24,15 @@ const Navbar = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><NavLink
+            {links}
+            {/* <li><NavLink
               to="/"
               className={({ isActive, isPending }) =>
                 isPending ? "" : isActive ? "bg-black text-white  font-bold" : "text-black bg-white  font-bold hover:text-white hover:bg-green"
               }
             >
               Home
-            </NavLink></li>
+            </NavLink></li> */}
 
             <li><NavLink
               to="/AboutUs"
@@ -89,11 +89,11 @@ const Navbar = () => {
             >
               Registration
             </NavLink></li>
-            
+
 
           </ul>
         </div>
-        {/* <h2 className="text-3xl text-white font-bold">Social Events Master</h2> */}
+
         <img className="h-[70px]" src="https://i.ibb.co/LQs8Nqw/image.png" alt="" />
 
       </div>
@@ -164,25 +164,26 @@ const Navbar = () => {
           >
             Registration
           </NavLink></li>
-          
+
         </ul>
       </div>
       <div className="navbar-end">
 
-        
-              {/* <img src={user.photoURL} alt="" className="w-[50px] h-[50px] rounded-full m-5" /> */}
-              <button onClick={handleSignOut} className="btn">Log Out</button>
-            
 
-            
-            <Link to={"/logIn"} className="flex ">
-              <BsPersonAdd className="text-3xl text-white font-bold mx-5"></BsPersonAdd>
+        {
+          user ?
+            <>
+              <img src={user.photoURL} alt="" className="w-[50px] h-[50px] rounded-full m-5" />
+              <button onClick={handleSignOut} className="btn">Log Out</button>
+            </>
+
+            :
+            <Link to={"/login"} className="flex ">
+              <BsPersonAdd className="text-3xl text-white font-bold mx-3"></BsPersonAdd>
               <button className="btn">Log In</button>
             </Link>
-        
-      </div>
-      <div>
-        
+        }
+
       </div>
     </div>
   );

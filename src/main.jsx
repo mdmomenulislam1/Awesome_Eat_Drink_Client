@@ -19,6 +19,8 @@ import Product from './Components/Product.jsx';
 import Details from './Components/Details.jsx';
 import Updated from './Components/Updated.jsx';
 import { ThemeProviderComponent } from './Components/ThemeProvider.jsx';
+import AuthProvider from './Firebase/AuthProvider.jsx';
+import PrivateRoute from './Firebase/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addCard",
-        element: <AddCard></AddCard>
+        element: <PrivateRoute><AddCard></AddCard></PrivateRoute>
       },
       {
         path: "/logIn",
@@ -46,17 +48,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCard",
-        element: <MyCart></MyCart>
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
       },
       {
         path: "/aboutUs",
         element: <AboutUs></AboutUs>
       },
-      // {
-      //   path:"/products",
-      //   element: <Products></Products>,
-      //   loader: () => fetch(`http://localhost:5000/products`)
-      // },
       {
         path: "/brands/:brand",
         element: <Product></Product>,
@@ -64,12 +61,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/prod/:_id",
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader: () => fetch(`http://localhost:5000/products`)
       },
       {
         path: "/products/:_id",
-        element: <Updated></Updated>,
+        element: <PrivateRoute><Updated></Updated></PrivateRoute>,
         loader: ({params}) => {
           console.log(params);
           return fetch(`http://localhost:5000/products/${params._id}`)
@@ -80,9 +77,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ThemeProviderComponent>
+  
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider><RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>
-  </ThemeProviderComponent>,
+  ,
 )
