@@ -4,37 +4,30 @@ const ProductCardDetails = ({ food }) => {
   const { _id, productName, productImage, brandName, brandImage, productType, productPrice, productShortDescription, productFullDescription, productRating } = food || {};
 
   const handleAddToCart = () => {
-    const addCartItemArr = [];
-    const addItem = JSON.parse(localStorage.getItem('Add'));
-    addCartItemArr.push(food);
-    localStorage.setItem('Add', JSON.stringify(addCartItemArr));
+    const addFoodItemArr = [];
+    const addItem = JSON.parse(localStorage.getItem('Add'))
+    if (!addItem) {
+      addFoodItemArr.push(food)
+      localStorage.setItem('Add', JSON.stringify(addFoodItemArr))
+      swal("Good job!", "Products added successfully!", "success");
+    }
+
+    else {
+      const isExists = addItem.find(food => food._id == _id)
+
+      if (!isExists) {
+        addFoodItemArr.push(...addItem, food)
+        localStorage.setItem('Add', JSON.stringify(addFoodItemArr))
+        swal("Good job!", "Products added successfully!", "success");
+        
+      }
+      else{
+        
+        swal("Error!", "No duplicate!", "error");
+      }
+    }
 
 
-    // if (!addItem) {
-    //   addCartItemArr.push(food)
-    //   localStorage.setItem('Served', JSON.stringify(addServedItemArr))
-    //   swal("Good job!", "Products added successfully!", "success");
-    // }
-
-    // else {
-    //   const isExists = ServedItem.find(service => service.id == id)
-
-    //   if (!isExists) {
-    //     addServedItemArr.push(...ServedItem, service)
-    //     localStorage.setItem('Served', JSON.stringify(addServedItemArr))
-    //     swal("Good job!", "Products added successfully!", "success");
-
-    //   }
-    //   else{
-
-    //     swal("Error!", "No duplicate!", "error");
-    //   }
-    // }
-
-    // addServedItemArr.push(...ServedItem, service)
-    // localStorage.setItem('Served', JSON.stringify(addServedItemArr))
-    // swal("Good job!", "Products added successfully!", "success");
-    swal("Good job!", "Products added successfully!", "success");
   }
 
   return (

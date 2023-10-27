@@ -16,7 +16,7 @@ const Home = () => {
 
         {
           brands?.map((brandItem) => (
-            <Link to={`/brands/${brandItem.brand}`}>
+            <Link key={brandItem.brand} to={`/brands/${brandItem.brand}`}>
               <div key={brandItem.brand} brandItem={brandItem} className="p-5 flex shadow-2xl rounded-xl bg-purple-800 h-[200px] justify-center items-center">
                 
                 <img src={brandItem.brand_img} alt=""  className="h-[150px] w-[200px] rounded-lg shadow-lg "/>

@@ -2,6 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { BsPersonAdd } from "react-icons/bs";
 import { useContext } from "react";
 import { AuthContext } from "../Firebase/AuthProvider";
+import Button from "./ThemeButton";
+import { lightTheme } from "./Theme";
 
 
 
@@ -177,6 +179,9 @@ const Navbar = () => {
               <BsPersonAdd className="text-3xl text-white font-bold mx-5"></BsPersonAdd>
               <button className="btn">Log In</button>
             </Link>
+        
+      </div>
+      <div>
         
       </div>
     </div>

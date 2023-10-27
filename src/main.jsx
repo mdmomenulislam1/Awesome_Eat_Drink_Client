@@ -18,6 +18,7 @@ import Products from './Components/Products.jsx';
 import Product from './Components/Product.jsx';
 import Details from './Components/Details.jsx';
 import Updated from './Components/Updated.jsx';
+import { ThemeProviderComponent } from './Components/ThemeProvider.jsx';
 
 
 const router = createBrowserRouter([
@@ -79,7 +80,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <ThemeProviderComponent>
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </ThemeProviderComponent>,
 )

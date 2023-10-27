@@ -91,7 +91,7 @@ const AddCard = () => {
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold">Product Price</p>
-        <input type="text" name="product_price" id="" placeholder="Product Price" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+        <input type="number" step="0.01" name="product_price" id="" placeholder="Product Price" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
@@ -106,7 +106,7 @@ const AddCard = () => {
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold">Product Rating</p>
-        <input type="number" min="1" max="5" name="product_rating" id="" placeholder="Product Rating" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+        <input type="number" step="0.01" min="1.00" max="5.00" name="product_rating" id="" placeholder="Product Rating" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
         <br />
         </div>
