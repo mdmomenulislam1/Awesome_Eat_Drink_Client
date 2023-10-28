@@ -31,8 +31,9 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
-        loader: () => fetch(`http://localhost:5000/brands`)
+        element: <Home></Home>
+        // loader: () => fetch(`http://localhost:5000/brands`),
+        // loader: () => fetch(`http://localhost:5000/review`)
       },
       {
         path: "/addCard",

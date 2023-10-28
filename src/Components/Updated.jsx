@@ -18,6 +18,7 @@ const Updated = () => {
     const productFullDescription = form.product_long_description.value;
     const productRating = form.product_rating.value;
     console.log(productName, productImage, brandName, productType, productPrice, productShortDescription, productFullDescription, productRating);
+    
     const productData = {
       productName,
       productImage,
@@ -52,17 +53,17 @@ const Updated = () => {
         <h2 className="text-2xl font-bold">Update Product </h2>
         <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="flex justify-center items-center w-full">
-          <p className="text-black font-bold">Product Name</p>
+          <p className="text-black font-bold w-[200px]">Product Name</p>
         
           <input type="text" name="product_name" defaultValue={singleData.productName} id="" placeholder="Product Name" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
         <div className="flex justify-center items-center w-full">
-          <p className=" text-black font-bold">Product Photo URL</p>
+          <p className=" text-black font-bold w-[200px]">Product Photo URL</p>
           <input type="text" name="product_image" id="" defaultValue={singleData.productImage} placeholder="Product Image URL" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
-          <p className=" text-black font-bold">Brand Name</p>
+          <p className=" text-black font-bold w-[200px]">Brand Name</p>
         <select name="brand_name" id="" defaultValue={singleData.brandName} placeholder="Brand Name" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg">
           <option value="">Select One</option>
           <option value="Coca-Cola">Coca-Cola</option>
@@ -75,7 +76,7 @@ const Updated = () => {
         </div>
 
         <div className="flex justify-center items-center w-full">
-          <p className=" text-black font-bold">Product Type</p>
+          <p className=" text-black font-bold w-[200px]">Product Type</p>
         <select name="product_type" id="" defaultValue={singleData.productType} placeholder="Product Type" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg">
           <option value="">Select One</option>
           <option value="Soft Drink">Soft Drink</option>
@@ -94,23 +95,23 @@ const Updated = () => {
         </div>
 
         <div className="flex justify-center items-center w-full">
-          <p className=" text-black font-bold">Product Price</p>
-        <input type="text" name="product_price" id="" defaultValue={singleData.productPrice} placeholder="Product Price" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+          <p className=" text-black font-bold w-[200px]">Product Price</p>
+        <input type="number"  name="product_price" id="" defaultValue={singleData.productPrice} placeholder="Product Price" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
-          <p className=" text-black font-bold">Product Short Description</p>
+          <p className=" text-black font-bold w-[200px]">Product Short Description</p>
         <input type="text" name="product_short_description" id="" defaultValue={singleData.productShortDescription} placeholder="Product Short Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
-          <p className=" text-black font-bold">Product Full Description</p>
+          <p className=" text-black font-bold w-[200px]">Product Full Description</p>
         <input type="text" name="product_long_description" id="" defaultValue={singleData.productFullDescription} placeholder="Product Full Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
-          <p className=" text-black font-bold">Product Rating</p>
-        <input type="number" min="1.00" max="5.00" name="product_rating" id="" defaultValue={singleData.productRating} placeholder="Product Rating" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+          <p className=" text-black font-bold w-[200px]">Product Rating</p>
+        <input type="number" step="0.1" min="1.00" max="5.00" name="product_rating" id="" defaultValue={singleData.productRating} placeholder="Product Rating" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
         <br />
         </div>

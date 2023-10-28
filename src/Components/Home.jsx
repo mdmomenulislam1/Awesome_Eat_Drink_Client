@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from './Banner';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
-  const brands = useLoaderData();
-  // const { _id, brand, brand_img } = brands || {};
+  // const brands = useLoaderData();
   // console.log(brands);
+  // // const review = useLoaderData();
+  // // console.log(review);
+
+  // const fetchDataFromReview = async () => {
+  //   // Make an API call to Database A
+  //   const response = await fetch('https://example.com/api/databaseA');
+  //   const data = await response.json();
+  //   return data;
+  // };
+
+
+  const [brands, setBrands] = useState([]);
+  const [topReviewersData, setTopReviewersData] = useState([]);
+
+  useEffect(() => {
+    // Load data from Database A
+    fetch(`http://localhost:5000/brands`)
+      .then((response) => response.json())
+      .then((data) => setBrands(data));
+
+    // Load data from Database B
+    fetch(`http://localhost:5000/review`)
+      .then((response) => response.json())
+      .then((data) => setTopReviewersData(data));
+  }, []);
+
+  // const { _id, brand, brand_img } = brands || {};
+  console.log(brands);
+  console.log(topReviewersData);
   return (
     <div className="mx-3 md:mx-6 lg:mx-10">
       <Banner></Banner>
@@ -18,46 +46,84 @@ const Home = () => {
           brands?.map((brandItem) => (
             <Link key={brandItem.brand} to={`/brands/${brandItem.brand}`}>
               <div key={brandItem.brand} brandItem={brandItem} className="p-5 flex shadow-2xl rounded-xl bg-purple-800 h-[200px] justify-center items-center">
-                
-                <img src={brandItem.brand_img} alt=""  className="h-[150px] w-[200px] rounded-lg shadow-lg "/>
+
+                <img src={brandItem.brand_img} alt="" className="h-[150px] w-[200px] rounded-lg shadow-lg " />
                 <h1 className="text-4xl font-bold text-white mx-auto">{brandItem.brand}</h1>
-                
+
               </div>
-              </Link>
+            </Link>
           ))
         }
 
       </div>
 
-      <h2 className="text-3xl font-bold text-center mt-10">Foods </h2>
-      <section className="category">
-        <h2>Food</h2>
-        <div className="cards">
-            <div className="card">
-                <h3>Pizza</h3>
-                <p>Discover the world's best pizza recipes.</p>
-            </div>
-            <div className="card">
-                <h3>Sushi</h3>
-                <p>Learn about the art of sushi making.</p>
-            </div>
+      <h2 className="text-3xl font-bold text-center mt-16">Frequently Asked Questions </h2>
+      <section className="">
+        <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
+          <input type="radio" name="my-accordion-2" checked="checked" />
+          <div className="collapse-title text-xl font-medium">
+            What is the restaurant's specialty dish or cuisine?
+          </div>
+          <div className="collapse-content">
+            <p classNme="font-semibold">Customers often want to know what unique dishes or types of cuisine the restaurant offers. Providing information about signature dishes can help customers decide what to order.</p>
+          </div>
         </div>
-    </section>
+        <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
+          <input type="radio" name="my-accordion-2" />
+          <div className="collapse-title text-xl font-medium">
+            Are there options for dietary restrictions or allergies?
+          </div>
+          <div className="collapse-content">
+            <p classNme="font-semibold">Many people have dietary restrictions or food allergies. Restaurants should provide information about any gluten-free, vegetarian, vegan, or allergy-friendly options on their menu.</p>
+          </div>
+        </div>
+        <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
+          <input type="radio" name="my-accordion-2" />
+          <div className="collapse-title text-xl font-medium">
+            What are the restaurant's hours of operation?
+          </div>
+          <div className="collapse-content">
+            <p classNme="font-semibold">Customers want to know when the restaurant is open for breakfast, lunch, dinner, or late-night dining. Providing clear hours of operation helps customers plan their visit.</p>
+          </div>
+        </div>
+        <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
+          <input type="radio" name="my-accordion-2" />
+          <div className="collapse-title text-xl font-medium">
+            Is there a reservation system, and how does it work?
+          </div>
+          <div className="collapse-content">
+            <p classNme="font-semibold">Some restaurants offer reservations, while others operate on a first-come, first-served basis. Providing information about the reservation process and policies is helpful for customers.</p>
+          </div>
+        </div>
+        <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
+          <input type="radio" name="my-accordion-2" />
+          <div className="collapse-title text-xl font-medium">
+            What are the payment options, including credit cards and online payments?
+          </div>
+          <div className="collapse-content">
+            <p classNme="font-semibold">Customers often inquire about payment methods accepted by the restaurant. This can include credit cards, mobile payment apps, or other payment options.</p>
+          </div>
+        </div>
+      </section>
 
-    <h2 className="text-3xl font-bold text-center mt-10">Foods </h2>
-    <section className="category">
-        <h2>Beverage</h2>
-        <div className="cards">
-            <div className="card">
-                <h3>Coffee</h3>
-                <p>Explore coffee brewing methods and types.</p>
-            </div>
-            <div className="card">
-                <h3>Cocktails</h3>
-                <p>Master the art of crafting delicious cocktails.</p>
-            </div>
+      <h2 className="text-3xl font-bold text-center mt-10">Top Reviewers </h2>
+      <section className="my-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          
+            {topReviewersData.map((reviewer) => (
+              <div key={reviewer._id}>
+                <div>
+                  <img src={reviewer.img} alt={reviewer.name} />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold"><strong>Name: {reviewer.name}</strong></p>
+                  <p className="font-semibold">{reviewer.review}</p>
+                </div>
+              </div>
+            ))}
+          
         </div>
-    </section>
+      </section>
     </div>
   );
 };
