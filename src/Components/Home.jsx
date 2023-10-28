@@ -48,7 +48,7 @@ const Home = () => {
               <div key={brandItem.brand} brandItem={brandItem} className="p-5 flex shadow-2xl rounded-xl outline-dotted bg-white h-[200px] justify-center items-center">
 
                 <img src={brandItem.brand_img} alt="" className="h-[150px] w-[200px] rounded-lg shadow-lg " />
-                <h1 className="text-4xl font-bold text-purple-900 mx-auto">{brandItem.brand}</h1>
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-900 mx-auto">{brandItem.brand}</h1>
 
               </div>
             </Link>

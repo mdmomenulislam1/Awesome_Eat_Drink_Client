@@ -19,12 +19,6 @@ const Product = () => {
   const { _id, productName, productImage, brandName, brandImage, productType, productPrice, productShortDescription, productFullDescription, productRating } = products || {}
   // console.log(products.brandName);
 
-  AOS.init({
-    duration: 800,  // Animation duration in milliseconds
-    offset: 200,    // Offset (in pixels) from the bottom of the viewport
-    easing: 'ease', // Animation timing function
-  });
-
   useEffect(() => {
     const findProduct = products?.filter((product) => product.brandName === brand);
     console.log(findProduct);
