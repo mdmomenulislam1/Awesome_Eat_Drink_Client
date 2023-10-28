@@ -14,11 +14,11 @@ const Navbar = () => {
 
   const links = <>
     <li><NavLink to="/" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>Home </NavLink></li>
-    <li><NavLink to="/AboutUs" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>About Us </NavLink></li>
-    <li><NavLink to="/addCard" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>Add Card</NavLink></li>
+    <li><NavLink to="/addCard" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>Add Product</NavLink></li>
     <li><NavLink to="/myCard" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>My Card</NavLink></li>
     <li><NavLink to="/logIn" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>Log In</NavLink></li>
     <li><NavLink to="/registration" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>Registration</NavLink></li>
+    <li><NavLink to="/AboutUs" className={({ isActive, isPending }) => isPending ? "" : isActive ? "bg-black text-white hover:bg-green-900 hover:text-white  font-bold" : "text-black bg-white  font-bold"}>About Us </NavLink></li>
   </>
 
   return (

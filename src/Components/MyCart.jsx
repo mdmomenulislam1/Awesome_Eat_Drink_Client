@@ -73,8 +73,7 @@ const MyCart = () => {
                     Deleted All order
                   </button>
 
-                  <h1 className="outline-2 bg-green-950 text-white rounded-2xl p-3 text-3xl font-bold text-center">Total price : ${totalPrice}</h1>
-                </div>
+                  <h1 className="outline-2 bg-green-950 text-white rounded-2xl p-3 text-3xl font-bold text-center">Total price : ${totalPrice}</h1> </div>
               )}
               {order.length > 10 && <button onClick={() => setIsShow(!isShow)} className="p-5 bg-green-800 font-bold my-10 rounded-3xl text-white border-white block mx-auto">
                 {isShow ? "See less" : "See more"}

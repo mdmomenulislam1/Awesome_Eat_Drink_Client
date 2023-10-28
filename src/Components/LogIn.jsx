@@ -45,7 +45,7 @@ const LogIn = () => {
             })
             .catch(error => {
                 console.log(error);
-                swal("Sorry!", "Try again!", "error");
+                swal("Sorry!", "Email or Password doesn't match. Try Again!", "error");
             })
     }
 
@@ -85,7 +85,9 @@ const LogIn = () => {
                     <p className="my-3">Email: {user?.email}</p>
 
                 </div> :
-                <>
+                
+                    <div className="w-3/4 border-4 border-purple-700 mx-auto rounded-2xl p-10">
+                    <h2 className="text-3xl font-extrabold  text-center my-5">Log In </h2>
                     <div className="">
                         <form onSubmit={handleLogin} className="w-full">
                             <div className="form-control">
@@ -119,21 +121,21 @@ const LogIn = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="bg-red-700 font-bold text-center text-black p-3 rounded-lg">Login</button>
+                                <button className="bg-purple-700 font-bold text-center text-white p-3 rounded-lg">Login</button>
                             </div>
                         </form>
-                        <p className="font-semibold"> Are you New? Please <Link to="/register" className=""> <span>  Register</span></Link></p>
+                        <p className="font-semibold my-4"> Are you New? Please <Link to="/register" className="text-purple-700 font-extrabold"> <span>  Register</span></Link></p>
                     </div>
                     <h3 className="text-center text-3xl font-bold"> Or </h3>
                     <div className="flex justify-center items-center py-3">
 
-                        <Link onClick={handleLogin} className=" gap-2 flex justify-center items-center">
-                            <BsGoogle className="text-2xl"></BsGoogle>
-                            <button onClick={handleGoogleSignIn} className="p-5 btn">Google</button>
+                        <Link onClick={handleGoogleSignIn} className=" gap-2 flex justify-center items-center">
+                            
+                            <button  className="text-2xl font-bold px-5 bg-purple-700 rounded-2xl py-3 text-white"><BsGoogle className="text-yellow-400 inline mx-3"></BsGoogle> Google</button>
                         </Link>
 
                     </div>
-                </>
+                </div>
             }
         </div>
     );
