@@ -29,7 +29,7 @@ const AddCard = () => {
       productFullDescription,
       productRating
     }
-    fetch('http://localhost:5000/products', {
+    fetch('https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/products', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

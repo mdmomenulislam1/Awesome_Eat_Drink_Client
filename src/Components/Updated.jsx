@@ -29,7 +29,7 @@ const Updated = () => {
       productFullDescription,
       productRating
     }
-    fetch(`http://localhost:5000/products/${singleData._id}`, {
+    fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/products/${singleData._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

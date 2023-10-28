@@ -30,8 +30,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`http://localhost:5000/brands`)
-        // loader: () => fetch(`http://localhost:5000/review`)
+        loader: () => fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/brands`)
+        
       },
       {
         path: "/addCard",
@@ -56,19 +56,19 @@ const router = createBrowserRouter([
       {
         path: "/brands/:brand",
         element: <Product></Product>,
-        loader: () => fetch(`http://localhost:5000/products`)
+        loader: () => fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/products`)
       },
       {
         path: "/prod/:_id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: () => fetch(`http://localhost:5000/products`)
+        loader: () => fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/products`)
       },
       {
         path: "/products/:_id",
         element: <PrivateRoute><Updated></Updated></PrivateRoute>,
         loader: ({ params }) => {
           console.log(params);
-          return fetch(`http://localhost:5000/products/${params._id}`)
+          return fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/products/${params._id}`)
         }
       }
     ]

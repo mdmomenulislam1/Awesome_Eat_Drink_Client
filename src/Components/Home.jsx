@@ -21,12 +21,12 @@ const Home = () => {
 
   useEffect(() => {
     // Load data from Database A
-    fetch(`http://localhost:5000/brands`)
+    fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/brands`)
       .then((response) => response.json())
       .then((data) => setBrands(data));
 
     // Load data from Database B
-    fetch(`http://localhost:5000/review`)
+    fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/review`)
       .then((response) => response.json())
       .then((data) => setTopReviewersData(data));
   }, []);

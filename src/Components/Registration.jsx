@@ -21,7 +21,7 @@ const Registration = () => {
                 navigate(location?.state ? location.state : '/');
             })
             .catch(() => {
-                swal("Sorry!", "Try again!", "error");
+                // swal("Sorry!", "Try again!", "error");
             })
     }
 
@@ -39,7 +39,7 @@ const Registration = () => {
         }
         else {
             swal("Go ahead!", "You are in right track!", "success");
-            navigate(location?.state ? location.state : '/');
+            
             createUser(email, password)
                 .then((result) => {
                     console.log(result.user)

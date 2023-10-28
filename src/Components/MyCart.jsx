@@ -38,7 +38,7 @@ const MyCart = () => {
     <div>
       <div>
         <div>
-          <ol type="1" className="mx-5 md:mx-10 lg:mx-16 text-2xl font-bold py-5 ">
+          <ol type="1" className="mx-5 md:mx-10 lg:mx-16 md:text-2xl font-bold py-5 ">
          
                 <div className="flex flex-row justify-evenly items-center">
                    <td className="">Product Name</td> 

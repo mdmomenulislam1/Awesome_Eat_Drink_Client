@@ -124,7 +124,7 @@ const LogIn = () => {
                                 <button className="bg-purple-700 font-bold text-center text-white p-3 rounded-lg">Login</button>
                             </div>
                         </form>
-                        <p className="font-semibold my-4"> Are you New? Please <Link to="/register" className="text-purple-700 font-extrabold"> <span>  Register</span></Link></p>
+                        <p className="font-semibold my-4"> Are you New? Please <Link to="/registration" className="text-purple-700 font-extrabold"> <span> Register</span></Link></p>
                     </div>
                     <h3 className="text-center text-3xl font-bold"> Or </h3>
                     <div className="flex justify-center items-center py-3">
