@@ -92,24 +92,24 @@ const LogIn = () => {
                         <form onSubmit={handleLogin} className="w-full">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-black text-2xl font-semibold">Email</span>
+                                    <span className="label-text text-black text-2xl font-bold">Email</span>
                                 </label>
                                 <input
                                     type="email"
                                     name="email"
                                     ref={emailRef}
                                     placeholder="Email"
-                                    className="input input-bordered text-black" required />
+                                    className="input input-bordered border-purple-700 text-black" required />
                             </div>
                             <div className="form-control relative">
                                 <label className="label">
-                                    <span className="label-text text-black text-2xl font-semibold">Password</span>
+                                    <span className="label-text text-black text-2xl font-bold">Password</span>
                                 </label>
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     name="password"
                                     placeholder="Password"
-                                    className="input input-bordered  text-black" required />
+                                    className="input input-bordered border-purple-700 text-black" required />
                                 <span className="absolute text-4xl right-2 bottom-10" onClick={() => setShowPassword(!showPassword)}>
                                     {
                                         showPassword ? <BsEye></BsEye> : <BsEyeSlash></BsEyeSlash>

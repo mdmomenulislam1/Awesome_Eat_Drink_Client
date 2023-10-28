@@ -4,10 +4,10 @@ const Banner = () => {
   return (
     <div className="hero h-[500px] rounded-lg" style={{ backgroundImage: 'url(https://i.ibb.co/NYtB5df/9a405521d5d945f35127079812ada518.jpg)' } }>
       <div className=""></div>
-        <div className="h-full w-full opacity-80 bg-gradient-to-r from-gray-50 to-slate-950 flex justify-items-start items-center gap-5">
+        <div className="h-full w-full opacity-80 bg-gradient-to-r from-green-800 to-slate-950 flex justify-items-start items-center gap-5">
           <div className="w-1/3 px-3 md:px-5 lg:px-8">
-            <h1 className="mb-5 text-purple-700 text-3xl md:text-4xl font-bold text-justify">Awesome Food Corner</h1>
-            <p className="mb-5 font-bold text-justify text-green-950 text-2xl ">Awesome Food Corner: Culinary Artistry, Unforgettable Moments</p>
+            <h1 className="mb-5 text-red-200 text-3xl md:text-4xl font-bold text-justify">Awesome Food Corner</h1>
+            <p className="mb-5 font-bold text-justify text-green-50 text-2xl ">Awesome Food Corner: Culinary Artistry, Unforgettable Moments</p>
 
           </div>
           <div className="border-l-4 w-2/3 px-3 md:px-5 lg:px-8">

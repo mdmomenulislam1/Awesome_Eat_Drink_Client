@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: "/products/:_id",
         element: <PrivateRoute><Updated></Updated></PrivateRoute>,
-        loader: ({params}) => {
+        loader: ({ params }) => {
           console.log(params);
           return fetch(`http://localhost:5000/products/${params._id}`)
         }
@@ -76,9 +76,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
+
   <React.StrictMode>
-    <AuthProvider><RouterProvider router={router} /></AuthProvider>
+  
+      <AuthProvider><RouterProvider router={router} /></AuthProvider>
+    
   </React.StrictMode>
   ,
 )

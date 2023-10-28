@@ -113,10 +113,10 @@ const Home = () => {
             {topReviewersData.map((reviewer) => (
               <div key={reviewer._id} className="text-center shadow-xl p-5 rounded-lg">
                 
-                  <img src={reviewer.img} alt={reviewer.name}  className="rounded-full mx-auto"/>
+                  <img src={reviewer.img} alt={reviewer.name}  className="rounded-full mx-auto mt-3"/>
                 
                 
-                  <p className="text-2xl font-bold"><strong>{reviewer.name}</strong></p>
+                  <p className="text-2xl font-bold mt-2"><strong>{reviewer.name}</strong></p>
                   <p className="font-semibold">{reviewer.review}</p>
                
               </div>

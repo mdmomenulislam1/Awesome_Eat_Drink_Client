@@ -48,12 +48,24 @@ const Navbar = () => {
               <p className="text-white font-bold">{user.displayName}</p>
               <img src={user.photoURL} alt="" className="w-[50px] h-[50px] rounded-full m-5" />
               <button onClick={handleSignOut} className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Log Out</button>
+
+              
+              
+
+
             </div>
             :
-            <Link to={"/login"} className="flex ">
-              <BsPersonCircle className="text-5xl text-white font-bold mx-3"></BsPersonCircle>
-              <button className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Log In</button>
-            </Link>
+            <div>
+              
+              <Link to={"/login"} className="flex ">
+                <BsPersonCircle className="text-5xl text-white font-bold mx-3"></BsPersonCircle>
+                <button className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Log In</button>
+              </Link>
+
+
+
+              
+            </div>
         }
 
       </div>
