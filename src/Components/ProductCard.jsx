@@ -8,7 +8,7 @@ const ProductCard = ({food}) => {
     <div>
       <div key={food._id} className="flex justify-center items-center shadow-2xl gap-4 h-[250px] bg-green-800 text-white rounded-lg ">
         <div>
-          <img src={productImage} alt="" className="px-3 rounded-3xl" />
+          <img src={productImage} alt="" className="px-3 h-full w-full rounded-3xl" />
         </div>
         <div className="mt-5 px-5">
           <p className=" font-bold mt-2">Product: {productName}</p>

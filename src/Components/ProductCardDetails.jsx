@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsStarFill } from 'react-icons/bs';
 
 const ProductCardDetails = ({ food }) => {
   const { _id, productName, productImage, brandName, brandImage, productType, productPrice, productShortDescription, productFullDescription, productRating } = food || {};
@@ -19,10 +20,10 @@ const ProductCardDetails = ({ food }) => {
         addFoodItemArr.push(...addItem, food)
         localStorage.setItem('Add', JSON.stringify(addFoodItemArr))
         swal("Good job!", "Products added successfully!", "success");
-        
+
       }
-      else{
-        
+      else {
+
         swal("Error!", "No duplicate!", "error");
       }
     }
@@ -34,18 +35,21 @@ const ProductCardDetails = ({ food }) => {
     <div>
       <div>
         <h2 className="text-3xl text-center font-bold mt-10">Product Details </h2>
-        <div className="max-w-[1300px] mx-auto px-10 lg:px-0 my-10">
-          <div className="glass rounded-lg p-5">
+        <div className="max-w-[1300px] mx-auto lg:px-0 my-10">
+          <div className="glass rounded-lg p-10">
             <div className="card w-full relative flex flex-row justify-around items-center ">
               <div>
-                <img src={productImage} className="rounded-lg" alt="car!" />
+                <img src={productImage} className="rounded-lg shadow-2xl" alt="car!" />
               </div>
 
               <div>
                 <h2 className="text-4xl font-bold mb-4">Product Name: {productName}</h2>
-                <h2 className="text-4xl font-bold mb-4">Brand Name{brandName}</h2>
-                <p className="text-3xl font-bold my-3">Product Price: ${productPrice}</p>
-                <p className="text-3xl font-bold my-3">Product Rating: {productRating} out of 5</p>
+                <h2 className="text-2xl font-bold mb-4 text-red-700">Brand Name{brandName}</h2>
+                <p className="text-3xl font-bold my-3 text-green-700">Product Price: ${productPrice}</p>
+                <div className="flex flex-row items-center">
+                  <p className="text-2xl font-bold my-3 text-yellow-500 mr-2">Product Rating:</p><BsStarFill className="text-xl font-bold my-3 text-yellow-500 mr-2"></BsStarFill><p className="text-2xl font-bold my-3 text-yellow-500">{productRating} </p>
+                </div>
+
               </div>
             </div>
             <div className="py-10">

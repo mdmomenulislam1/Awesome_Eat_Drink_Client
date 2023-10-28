@@ -57,16 +57,16 @@ const AddCard = () => {
         <div className="flex justify-center items-center w-full">
           <p className="text-black font-bold w-[200px]">Product Name</p>
         
-          <input type="text" name="product_name" id="" placeholder="Product Name" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+          <input type="text" name="product_name" id="" placeholder="Product Name" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold w-[200px]">Product Photo URL</p>
-          <input type="text" name="product_image" id="" placeholder="Product Image URL" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+          <input type="text" name="product_image" id="" placeholder="Product Image URL" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold w-[200px]">Brand Name</p>
-        <select name="brand_name" id="" placeholder="Brand Name" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg">
+        <select name="brand_name" id="" placeholder="Brand Name" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg">
           <option value="">Select One</option>
           <option value="Coca-Cola">Coca-Cola</option>
           <option value="McDonald's">McDonald's</option>
@@ -79,7 +79,7 @@ const AddCard = () => {
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold w-[200px]">Product Type</p>
-        <select name="product_type" id="" placeholder="Product Type" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg">
+        <select name="product_type" id="" placeholder="Product Type" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg">
           <option value="">Select One</option>
           <option value="Soft Drink">Soft Drink</option>
           <option value="Burger">Burger</option>
@@ -98,22 +98,22 @@ const AddCard = () => {
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold w-[200px]">Product Price</p>
-        <input type="number" step="0.01" name="product_price" id="" placeholder="Product Price" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+        <input type="number" step="0.01" name="product_price" id="" required placeholder="Product Price" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold w-[200px]">Product Short Description</p>
-        <input type="text" name="product_short_description" id="" placeholder="Product Short Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+        <input type="text" name="product_short_description" id="" required placeholder="Product Short Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold w-[200px]">Product Full Description</p>
-        <input type="text" name="product_long_description" id="" placeholder="Product Full Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+        <input type="text" name="product_long_description" id="" required placeholder="Product Full Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
 
         <div className="flex justify-center items-center w-full">
           <p className=" text-black font-bold w-[200px]">Product Rating</p>
-        <input type="number" step="0.1" min="1.00" max="5.00" name="product_rating" id="" placeholder="Product Rating" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+        <input type="number" step="0.1" min="1.00" max="5.00" required name="product_rating" id="" placeholder="Product Rating" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
         </div>
         <br />
         </div>

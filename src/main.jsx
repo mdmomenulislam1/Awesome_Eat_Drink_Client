@@ -14,11 +14,9 @@ import Registration from './Components/Registration.jsx';
 import MyCart from './Components/MyCart.jsx';
 import AboutUs from './Components/AboutUs.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
-import Products from './Components/Products.jsx';
 import Product from './Components/Product.jsx';
 import Details from './Components/Details.jsx';
 import Updated from './Components/Updated.jsx';
-import { ThemeProviderComponent } from './Components/ThemeProvider.jsx';
 import AuthProvider from './Firebase/AuthProvider.jsx';
 import PrivateRoute from './Firebase/PrivateRoute.jsx';
 
@@ -31,8 +29,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
-        // loader: () => fetch(`http://localhost:5000/brands`),
+        element: <Home></Home>,
+        loader: () => fetch(`http://localhost:5000/brands`)
         // loader: () => fetch(`http://localhost:5000/review`)
       },
       {

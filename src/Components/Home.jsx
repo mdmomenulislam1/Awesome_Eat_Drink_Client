@@ -4,16 +4,16 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
   // const brands = useLoaderData();
-  // console.log(brands);
-  // // const review = useLoaderData();
-  // // console.log(review);
+  // // // console.log(brands);
+  // // // // const review = useLoaderData();
+  // // // // console.log(review);
 
-  // const fetchDataFromReview = async () => {
-  //   // Make an API call to Database A
-  //   const response = await fetch('https://example.com/api/databaseA');
-  //   const data = await response.json();
-  //   return data;
-  // };
+  // // // const fetchDataFromReview = async () => {
+  // // //   // Make an API call to Database A
+  // // //   const response = await fetch('https://example.com/api/databaseA');
+  // // //   const data = await response.json();
+  // // //   return data;
+  // // // };
 
 
   const [brands, setBrands] = useState([]);
@@ -31,9 +31,9 @@ const Home = () => {
       .then((data) => setTopReviewersData(data));
   }, []);
 
-  // const { _id, brand, brand_img } = brands || {};
-  console.log(brands);
-  console.log(topReviewersData);
+  // // const { _id, brand, brand_img } = brands || {};
+  // console.log(brands);
+  // console.log(topReviewersData);
   return (
     <div className="mx-3 md:mx-6 lg:mx-10">
       <Banner></Banner>
@@ -65,7 +65,7 @@ const Home = () => {
             What is the restaurant's specialty dish or cuisine?
           </div>
           <div className="collapse-content">
-            <p classNme="font-semibold">Customers often want to know what unique dishes or types of cuisine the restaurant offers. Providing information about signature dishes can help customers decide what to order.</p>
+            <p className="font-semibold">Customers often want to know what unique dishes or types of cuisine the restaurant offers. Providing information about signature dishes can help customers decide what to order.</p>
           </div>
         </div>
         <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
@@ -74,7 +74,7 @@ const Home = () => {
             Are there options for dietary restrictions or allergies?
           </div>
           <div className="collapse-content">
-            <p classNme="font-semibold">Many people have dietary restrictions or food allergies. Restaurants should provide information about any gluten-free, vegetarian, vegan, or allergy-friendly options on their menu.</p>
+            <p className="font-semibold">Many people have dietary restrictions or food allergies. Restaurants should provide information about any gluten-free, vegetarian, vegan, or allergy-friendly options on their menu.</p>
           </div>
         </div>
         <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
@@ -83,7 +83,7 @@ const Home = () => {
             What are the restaurant's hours of operation?
           </div>
           <div className="collapse-content">
-            <p classNme="font-semibold">Customers want to know when the restaurant is open for breakfast, lunch, dinner, or late-night dining. Providing clear hours of operation helps customers plan their visit.</p>
+            <p className="font-semibold">Customers want to know when the restaurant is open for breakfast, lunch, dinner, or late-night dining. Providing clear hours of operation helps customers plan their visit.</p>
           </div>
         </div>
         <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
@@ -92,7 +92,7 @@ const Home = () => {
             Is there a reservation system, and how does it work?
           </div>
           <div className="collapse-content">
-            <p classNme="font-semibold">Some restaurants offer reservations, while others operate on a first-come, first-served basis. Providing information about the reservation process and policies is helpful for customers.</p>
+            <p className="font-semibold">Some restaurants offer reservations, while others operate on a first-come, first-served basis. Providing information about the reservation process and policies is helpful for customers.</p>
           </div>
         </div>
         <div className="collapse collapse-arrow bg-base-200 my-2 md:my-5 lg:my-8">
@@ -101,24 +101,24 @@ const Home = () => {
             What are the payment options, including credit cards and online payments?
           </div>
           <div className="collapse-content">
-            <p classNme="font-semibold">Customers often inquire about payment methods accepted by the restaurant. This can include credit cards, mobile payment apps, or other payment options.</p>
+            <p className="font-semibold">Customers often inquire about payment methods accepted by the restaurant. This can include credit cards, mobile payment apps, or other payment options.</p>
           </div>
         </div>
       </section>
 
       <h2 className="text-3xl font-bold text-center mt-10">Top Reviewers </h2>
       <section className="my-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-5">
           
             {topReviewersData.map((reviewer) => (
-              <div key={reviewer._id}>
-                <div>
-                  <img src={reviewer.img} alt={reviewer.name} />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold"><strong>Name: {reviewer.name}</strong></p>
+              <div key={reviewer._id} className="text-center shadow-xl p-5 rounded-lg">
+                
+                  <img src={reviewer.img} alt={reviewer.name}  className="rounded-full mx-auto"/>
+                
+                
+                  <p className="text-2xl font-bold"><strong>{reviewer.name}</strong></p>
                   <p className="font-semibold">{reviewer.review}</p>
-                </div>
+               
               </div>
             ))}
           

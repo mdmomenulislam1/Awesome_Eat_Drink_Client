@@ -19,7 +19,8 @@ const MyCart = () => {
       setOrder(orderedItem);
 
       const total = orderedItem.reduce((previousValue, currentPrice) => previousValue + parseFloat(currentPrice?.productPrice), 0);
-      setTotalPrice(total);
+      const price = total.toFixed(2);
+      setTotalPrice(price);
     }
     else {
       setNoFound("No Ordered Item ")
@@ -35,9 +36,19 @@ const MyCart = () => {
 
   return (
     <div>
-            <div>
+      <div>
         <div>
-          <div className="overflow-x-auto px-5 w-full text-2xl font-bold py-5">
+          <ol type="1" className="mx-5 md:mx-10 lg:mx-16 text-2xl font-bold py-5 ">
+         
+                <div className="flex flex-row justify-evenly items-center">
+                   <td className="">Product Name</td> 
+                   <td className="">Product Image</td> 
+                   <td className="">Brand Name</td> 
+                   <td className="">Product Type</td> 
+                   <td className="">Product Price ($)</td> 
+                   
+                </div>
+            
             {
               isShow ? order?.map((serviceItem) => (
                 <CartCard key={serviceItem._id} serviceItem={serviceItem}></CartCard>
@@ -47,7 +58,7 @@ const MyCart = () => {
                   <CartCard key={serviceItem._id} serviceItem={serviceItem}></CartCard>
                 ))
             }
-          </div>
+          </ol>
 
           {noFound ? (
             <p className="h-[80vh] flex justify-center items-center text-3xl font-bold">{noFound}</p>
@@ -62,10 +73,10 @@ const MyCart = () => {
                     Deleted All order
                   </button>
 
-                  <h1 className="outline-2 bg-green-950 text-white rounded-2xl p-3 text-3xl font-bold text-center">Total price : {totalPrice}</h1>
+                  <h1 className="outline-2 bg-green-950 text-white rounded-2xl p-3 text-3xl font-bold text-center">Total price : ${totalPrice}</h1>
                 </div>
               )}
-              {order.length > 10 && <button onClick={() => setIsShow(!isShow)} className="px-5 bg-green-200 block mx-auto">
+              {order.length > 10 && <button onClick={() => setIsShow(!isShow)} className="p-5 bg-green-800 font-bold my-10 rounded-3xl text-white border-white block mx-auto">
                 {isShow ? "See less" : "See more"}
               </button>}
             </div>
