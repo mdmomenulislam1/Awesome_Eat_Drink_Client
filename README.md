@@ -1,6 +1,4 @@
-# Live Link
-- [Netlify](chic-stardust-98ae11.netlify.app)
-- [Firebase](https://assignment--10-d5591.web.app)
+# Live Link [chic-stardust-98ae11.netlify.app]
 
 
 # Points of Our Food and Beverage Company
