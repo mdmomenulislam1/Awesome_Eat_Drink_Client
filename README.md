@@ -1,11 +1,9 @@
-# My Assignment Live Link
-
-- [Surge](kaput-carpenter.surge.sh)
+# Live Link
 - [Netlify](chic-stardust-98ae11.netlify.app)
 - [Firebase](https://assignment--10-d5591.web.app)
 
 
-# Five Points of Our Food and Beverage Company
+# Points of Our Food and Beverage Company
 
 ## Introduction:
 Our Food and Beverage Company is dedicated to creating websites for famous brands operating in the food and beverage industry. Our primary goal is to provide our clients with custom-made, visually appealing, user-friendly, and responsive websites that meet their specific requirements.
@@ -25,3 +23,27 @@ Today, people tend to use their mobiles and tablets more frequently. Therefore, 
 
 ### 5. CMS Integration:
 We understand that our clients need to update their website frequently. That’s why we integrate a Content Management System (CMS) into our websites, allowing clients to update their menus, locations, and other content on-the-go.
+
+
+# Used Technologies
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=tailwind,firebase,mongodb,react,express,nodejs" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,js,github,vscode,figma" />
+  </a>
+</p>
+
+# Used Package
+- aos
+- axios
+- react-icons
+- react-slick
+- slick-carousel
+- styled-components
+- sweetalert
+    
