@@ -1,25 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Main from './Components/Main.jsx';
-import Home from './Components/Home.jsx';
-import AddCard from './Components/AddCard.jsx';
-import Login from './Components/LogIn.jsx';
-import Registration from './Components/Registration.jsx';
-import MyCart from './Components/MyCart.jsx';
-import AboutUs from './Components/AboutUs.jsx';
-import ErrorPage from './Components/ErrorPage.jsx';
-import Product from './Components/Product.jsx';
-import Details from './Components/Details.jsx';
-import Updated from './Components/Updated.jsx';
-import AuthProvider from './Firebase/AuthProvider.jsx';
-import PrivateRoute from './Firebase/PrivateRoute.jsx';
-
+import App from "./App.jsx";
+import "./index.css";
+import Main from "./Components/Main.jsx";
+import Home from "./Components/Home.jsx";
+import AddCard from "./Components/AddCard.jsx";
+import Login from "./Components/LogIn.jsx";
+import Registration from "./Components/Registration.jsx";
+import MyCart from "./Components/MyCart.jsx";
+import AboutUs from "./Components/AboutUs.jsx";
+import ErrorPage from "./Components/ErrorPage.jsx";
+import Product from "./Components/Product.jsx";
+import Details from "./Components/Details.jsx";
+import Updated from "./Components/Updated.jsx";
+import AuthProvider from "./Firebase/AuthProvider.jsx";
+import PrivateRoute from "./Firebase/PrivateRoute.jsx";
+import { ThemeProvider } from "./Components/ThemeContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +30,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/brands`)
-        
       },
       {
         path: "/addCard",
@@ -76,11 +74,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
   <React.StrictMode>
-  
-      <AuthProvider><RouterProvider router={router} /></AuthProvider>
-    
-  </React.StrictMode>
-  ,
-)
+    <AuthProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </AuthProvider>
+  </React.StrictMode>,
+);

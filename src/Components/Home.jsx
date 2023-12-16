@@ -3,37 +3,20 @@ import Banner from './Banner';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Home = () => {
-  // const brands = useLoaderData();
-  // // // console.log(brands);
-  // // // // const review = useLoaderData();
-  // // // // console.log(review);
-
-  // // // const fetchDataFromReview = async () => {
-  // // //   // Make an API call to Database A
-  // // //   const response = await fetch('https://example.com/api/databaseA');
-  // // //   const data = await response.json();
-  // // //   return data;
-  // // // };
-
-
+  
   const [brands, setBrands] = useState([]);
   const [topReviewersData, setTopReviewersData] = useState([]);
 
   useEffect(() => {
-    // Load data from Database A
     fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/brands`)
       .then((response) => response.json())
       .then((data) => setBrands(data));
 
-    // Load data from Database B
     fetch(`https://assignment-10-server-site-npwfqb83r-brand-shop-a10s-projects.vercel.app/review`)
       .then((response) => response.json())
       .then((data) => setTopReviewersData(data));
   }, []);
 
-  // // const { _id, brand, brand_img } = brands || {};
-  // console.log(brands);
-  // console.log(topReviewersData);
   return (
     <div className="mx-3 md:mx-6 lg:mx-10">
       <Banner></Banner>
